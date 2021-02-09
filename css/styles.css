@@ -1,0 +1,116 @@
+:root {
+  --color-primary: #0099ff;
+  --color-dark: #212121;
+  --color-light: #fff;
+
+  --padding-app: 30px;
+
+  --color-background-accent-theme: var(--color-dark);
+  --color-body-background: var(--color-light);
+
+  --color-accent-theme: var(--color-light);
+  --color-text: var(--color-dark);
+
+  --transition-default: 0.3s;
+  --transition-theme: var(--transition-default);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+button,
+input {
+  border: none;
+  outline: none;
+}
+
+body {
+  background-color: var(--color-body-background);
+  font-family: "Poppins", sans-serif;
+  color: var(--color-text);
+  transition: background-color var(--transition-theme);
+}
+body.dark-theme {
+  --color-background-accent-theme: var(--color-light);
+  --color-body-background: var(--color-dark);
+
+  --color-accent-theme: var(--color-dark);
+  --color-text: var(--color-light);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  box-shadow: 0 1px 6px rgba(156, 156, 156, 0.5);
+  padding-right: var(--padding-app);
+  padding-left: var(--padding-app);
+}
+.header__logo {
+  font-size: 24px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.nav__items {
+  display: flex;
+}
+.nav__item:not(:last-child) {
+  margin-right: 20px;
+}
+.nav__link {
+  transition: var(--transition-default);
+}
+.nav__link:hover {
+  color: var(--color-primary);
+}
+.container {
+  padding-right: var(--padding-app);
+  padding-left: var(--padding-app);
+}
+.home {
+  padding-top: 20px;
+}
+.home__title {
+  padding-bottom: 10px;
+  font-size: 32px;
+}
+.home__text {
+  font-size: 18px;
+}
+.home__btn {
+  margin-top: 10px;
+}
+.btn {
+  cursor: pointer;
+  padding: 5px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition-default);
+}
+.btn--dark {
+  background-color: #212121;
+  color: #fff;
+}
+.btn--light {
+  background-color: #fff;
+  color: #212121;
+}
+.btn--accent-theme {
+  background-color: var(--color-background-accent-theme);
+  color: var(--color-accent-theme);
+}
