@@ -3,18 +3,81 @@
   --color-dark: #212121;
   --color-light: #fff;
 
+  --color-gray-100: #132035;
+  --color-gray-200: #222f44;
+  --color-gray-300: #384357;
+  --color-gray-400: #718096;
+  --color-gray-500: #a0aec0;
+  --color-gray-600: #cbd5e0;
+  --color-gray-700: #e2e8f0;
+  --color-gray-800: #edf2f7;
+  --color-gray-900: #f7fafc;
+
   --padding-app: 30px;
+  --height-header: 60px;
 
   --color-background-accent-theme: var(--color-dark);
-  --color-body-background: var(--color-light);
+  --color-background-card: var(--color-light);
+  --color-background-body: var(--color-light);
 
-  --color-accent-theme: var(--color-light);
+  --color-text-accent-theme: var(--color-light);
+  --color-text-card: var(--color-gray-400);
   --color-text: var(--color-dark);
 
   --transition-default: 0.3s;
   --transition-theme: var(--transition-default);
 }
 
+[data-theme="dark"] {
+  --color-background-accent-theme: var(--color-light);
+  --color-background-body: var(--color-dark);
+  --color-background-card: #333;
+
+  --color-text-accent-theme: var(--color-dark);
+  --color-text-card: var(--color-gray-600);
+  --color-text: var(--color-light);
+}
+.btn {
+  cursor: pointer;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: var(--transition-default);
+}
+.btn--small {
+  padding: 4px 8px;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+.btn--dark {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+}
+.btn--light {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
+.btn--accent-theme {
+  background-color: var(--color-background-accent-theme);
+  color: var(--color-text-accent-theme);
+}
+.btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+}
+.btn--primary:hover {
+  background-color: rgb(60, 177, 255);
+}
+.btn--text.btn--primary {
+  color: var(--color-primary);
+  background-color: transparent;
+}
+.btn--text.btn--primary:hover {
+  background-color: rgb(0, 153, 255, 0.1);
+}
 * {
   margin: 0;
   padding: 0;
@@ -35,24 +98,20 @@ input {
 }
 
 body {
-  background-color: var(--color-body-background);
+  background-color: var(--color-background-body);
   font-family: "Poppins", sans-serif;
   color: var(--color-text);
   transition: background-color var(--transition-theme);
 }
-.dark-theme {
-  --color-background-accent-theme: var(--color-light);
-  --color-body-background: var(--color-dark);
 
-  --color-accent-theme: var(--color-dark);
-  --color-text: var(--color-light);
-}
 .header {
+  position: fixed;
+  height: var(--height-header);
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px;
-  box-shadow: 0 0 10px 5px rgba(156, 156, 156, 0.2);
+  backdrop-filter: blur(5px);
   padding-right: var(--padding-app);
   padding-left: var(--padding-app);
 }
@@ -80,35 +139,65 @@ body {
   padding-right: var(--padding-app);
   padding-left: var(--padding-app);
 }
-.home {
-  padding-top: 20px;
+.section {
+  min-height: 100vh;
 }
-.home__title {
+.banner {
+  width: 50%;
+  margin-right: auto;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  place-content: center;
+  text-align: center;
+}
+.banner__title {
   padding-bottom: 10px;
   font-size: 32px;
 }
-.home__text {
+.banner__text {
   font-size: 18px;
 }
-.btn {
-  cursor: pointer;
-  padding: 5px 20px;
+.banner__btn {
+  margin-top: 20px;
+}
+.cards {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+.card {
+  width: 300px;
   border-radius: 4px;
-  font-size: 16px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-background-card);
+  overflow: hidden;
   transition: var(--transition-default);
 }
-.btn--dark {
-  background-color: #212121;
-  color: #fff;
+.card__header {
+  height: 200px;
 }
-.btn--light {
-  background-color: #fff;
-  color: #212121;
+.card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.btn--accent-theme {
-  background-color: var(--color-background-accent-theme);
-  color: var(--color-accent-theme);
+.card__body {
+  padding: 20px;
+}
+.card__title {
+  margin-bottom: 5px;
+  font-size: 24px;
+  font-weight: 400;
+}
+.card__content {
+  color: var(--color-text-card);
+  font-weight: 300;
+  font-size: 14px;
+}
+.card__btns {
+  padding: 12px;
 }
