@@ -143,12 +143,10 @@ body {
   min-height: 100vh;
 }
 .banner {
-  width: 50%;
-  margin-right: auto;
-  margin-left: auto;
   display: grid;
-  place-items: center;
-  place-content: center;
+  grid-template-columns: repeat(1, 50%);
+  align-content: center;
+  justify-content: center;
   text-align: center;
 }
 .banner__title {
